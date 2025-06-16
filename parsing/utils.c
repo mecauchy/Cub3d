@@ -1,8 +1,13 @@
 #include "../includes/cub3d.h"
 
-int	is_digit(char c)
+int	is_digit(char *line)
 {
-	if (c >= '0' && c <= '9')
+	int	i;
+	int	nb;
+
+	i = 0;
+	nb = atoi(line);
+	if (nb >= 0 && nb <= 255)
 		return (1);
 	return (0);
 }

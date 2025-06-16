@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 13:23:04 by vluo              #+#    #+#             */
-/*   Updated: 2025/06/10 16:59:33 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:53:57 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_data
 	char		**line;
 	char		*stock;
 	char		*path;
+	int			largeur_map;
 	t_color		*color;
 }	t_data;
 
@@ -72,11 +73,12 @@ void	exit_mess(char *message);
 int		ft_size_len(t_data *data);
 int		word_count(char *str);
 void	stock_line(t_data *data);
-int		is_digit(char c);
+int		is_digit(char *line);
 int		check_limits(t_color *color);
 void	stock_color(char *line, t_color *color);
+void	size_map(t_data *data);
 void	parse_color(t_data *data, t_color *color);
-
+void	check_corner(t_data *data);
 
 
 #endif

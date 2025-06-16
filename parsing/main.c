@@ -10,5 +10,7 @@ int	main(int ac, char **av)
 	stock_map(&data);
 	stock_line(&data);
 	parse_color(&data, &color);
+	size_map(&data);
+	check_corner(&data);
 	return (0);
 }
