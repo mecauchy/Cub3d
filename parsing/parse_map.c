@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 15:02:36 by mcauchy-          #+#    #+#             */
-/*   Updated: 2025/06/16 16:07:46 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/16 16:18:28 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 		Les lignes du haut et du bas ne doivent contenir que des 1 et des espaces
 		Les premières et dernières colonnes de chaque ligne ne doivent être que des 1 ou des espaces
 		Aucun 0 ou joueur (N/S/E/W) ne doit toucher un espace ou le bord du fichier
+
+	3/
+		Checker qu'on a bien des les 2 couleurs : F & C pr l'instant KO
 */
 
 void	size_map(t_data *data)
