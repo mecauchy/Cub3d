@@ -6,7 +6,7 @@
 #    By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 13:22:33 by vluo              #+#    #+#              #
-#    Updated: 2025/06/16 15:09:28 by mcauchy-         ###   ########.fr        #
+#    Updated: 2025/06/17 14:54:39 by mcauchy-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJ_DIR			=	obj/
 
 INC				=	includes/
 
-CC				=	cc
+CC				=	gcc -g3
 
 CFLAGS			=	-Wall -Werror -Wextra
 

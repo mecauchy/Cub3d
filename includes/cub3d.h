@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 13:23:04 by vluo              #+#    #+#             */
-/*   Updated: 2025/06/16 15:53:57 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/17 16:46:38 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_data
 	char		*stock;
 	char		*path;
 	int			largeur_map;
+	int			size_all;
 	t_color		*color;
 }	t_data;
 
@@ -79,6 +80,10 @@ void	stock_color(char *line, t_color *color);
 void	size_map(t_data *data);
 void	parse_color(t_data *data, t_color *color);
 void	check_corner(t_data *data);
-
+void	check_end_of_map(t_data *data);
+void	check_last_line(t_data *data);
+void	check_first_line(t_data *data);
+void	size_all_map(t_data *data);
+void	free_map(char **str);
 
 #endif

@@ -11,6 +11,25 @@
 		parse_color_line(line, &data->ceiling_color);
 */
 
+void	checker_line(char *line)
+{
+	int	i;
+	char	**checker;
+
+	i = 0;
+	checker = ft_split(line, ' ');
+	while(checker[0][i])
+	{
+		i++;
+	}
+	printf("checker line -> %d\n", i);
+	if (i > 1)
+	{
+		free_map(checker);
+		exit_mess("Color must be start with : 'C' or 'F'");
+	}
+}
+
 void	stock_color(char *line, t_color *color)
 {
 	char	**tmp;
@@ -19,17 +38,20 @@ void	stock_color(char *line, t_color *color)
 
 	i = 0;
 	j = 0;
-	if (*line == 'C' || *line == 'F' || *line == ' ')
+	printf("line ========== [%s]\n", line);
+	checker_line(line);
+	if (*line == 'C' || *line == 'F' || *line == '\n')
 		line++;
 	if (*line == ' ')
 		line++;
-	printf("line ========== [%s]\n", line);
 	tmp = ft_split(line, ',');
 	while (tmp[i])
 	{	
 		printf("str[%d] = %s\n", i, tmp[i]);
 		i++;
 	}
+	if (i != 3)
+		exit_mess("It must be 3 color, no more, no less");
 	i = 0;
 	while (tmp[i])
 	{
@@ -50,7 +72,7 @@ void	stock_color(char *line, t_color *color)
 	color->b = atoi(tmp[2]);
 	printf("color is = %d\n", color->r);
 	printf("color is = %d\n", color->g);
-	printf("color is = %d\n", color->b);
+	printf("color is = [%d]\n", color->b);
 	free(tmp);
 	check_limits(color);
 }

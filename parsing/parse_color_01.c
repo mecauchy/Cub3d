@@ -3,11 +3,9 @@
 int	ft_size_len(t_data *data)
 {
 	int	i;
-	int	j;
 	int	count;
 
 	i = 0;
-	j = 0;
 	count = 0;
 	while (data->map[i])
 	{

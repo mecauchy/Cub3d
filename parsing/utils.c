@@ -2,10 +2,10 @@
 
 int	is_digit(char *line)
 {
-	int	i;
+	// int	i;
 	int	nb;
 
-	i = 0;
+	// i = 0;
 	nb = atoi(line);
 	if (nb >= 0 && nb <= 255)
 		return (1);
