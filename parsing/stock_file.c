@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:00:44 by mcauchy-          #+#    #+#             */
-/*   Updated: 2025/06/18 15:01:29 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:07:34 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	stock_map(t_data *data)
 {
 	int		file;
 
-	printf("path is \t\t = %s\n", data->path);
 	file = open(data->path, O_RDONLY);
 	if (file < 0)
 		ft_error("The map couldn't be opened", data);

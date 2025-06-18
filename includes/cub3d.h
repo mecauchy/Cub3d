@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 13:23:04 by vluo              #+#    #+#             */
-/*   Updated: 2025/06/18 15:24:58 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:47:16 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,10 @@ void	check_last_line(t_data *data);
 void	check_first_line(t_data *data);
 void	size_all_map(t_data *data);
 void	free_map(char **str);
+void	check_map(t_data *data);
 char	*ft_strcpy(char *dest, char *src);
 int		get_max_line(t_data *data);
+int		count_char(t_data *data);
 void	egalize_map(t_data *data);
 
 // void	init_data(t_data *data, char **av);

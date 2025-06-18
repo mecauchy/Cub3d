@@ -32,6 +32,8 @@ int	main(int ac, char **av)
 	check_last_line(&data);
 	get_max_line(&data);
 	egalize_map(&data);
+	count_char(&data);
+	check_map(&data);
 	free_map(data.map);
 	return (0);	// free_map(data.line);
 

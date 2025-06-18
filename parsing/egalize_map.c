@@ -45,7 +45,7 @@ void	egalize_map(t_data *data)
 				return ;
 			ft_strcpy(new_line, data->map[i]);
 			while (len < max)
-				new_line[len++] = 'a';
+				new_line[len++] = ' ';
 			new_line[len] = '\0';
 			free(data->map[i]);
 			data->map[i] = new_line;
