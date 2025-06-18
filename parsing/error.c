@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:00:16 by mcauchy-          #+#    #+#             */
-/*   Updated: 2025/06/16 15:10:11 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/18 14:11:13 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	ft_error(char *message, t_data *data)
 {
 	if (data)
-		free(data);
+	{
+		printf("heee");
+		// free(data);
+	}
 	ft_printf(RED"\nError\n"GREY"%s\n"RESET, message);
 	exit(EXIT_FAILURE);
 }

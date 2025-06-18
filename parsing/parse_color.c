@@ -28,6 +28,7 @@ void	checker_line(char *line)
 		free_map(checker);
 		exit_mess("Color must be start with : 'C' or 'F'");
 	}
+	free_map(checker);
 }
 
 void	stock_color(char *line, t_color *color)
@@ -51,7 +52,10 @@ void	stock_color(char *line, t_color *color)
 		i++;
 	}
 	if (i != 3)
+	{
+		free_map(tmp);
 		exit_mess("It must be 3 color, no more, no less");
+	}
 	i = 0;
 	while (tmp[i])
 	{
@@ -63,6 +67,7 @@ void	stock_color(char *line, t_color *color)
 		if (!is_digit(tmp[i]))
 		{
 			printf("nn digit tmp is = [%c]\n", tmp[i][j]);
+			free_map(tmp);
 			exit_mess("colors must be in a range of 0-255");
 		}
 		i++;
@@ -73,7 +78,7 @@ void	stock_color(char *line, t_color *color)
 	printf("color is = %d\n", color->r);
 	printf("color is = %d\n", color->g);
 	printf("color is = [%d]\n", color->b);
-	free(tmp);
+	free_map(tmp);
 	check_limits(color);
 }
 
@@ -89,4 +94,5 @@ void	parse_color(t_data *data, t_color *color)
 			stock_color(data->line[i], color);
 		i++;
 	}
+	free_map(data->line);
 }

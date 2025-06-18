@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:00:44 by mcauchy-          #+#    #+#             */
-/*   Updated: 2025/06/10 16:07:34 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/18 15:01:29 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	stock_map(t_data *data)
 {
 	int		file;
 
+	printf("path is \t\t = %s\n", data->path);
 	file = open(data->path, O_RDONLY);
 	if (file < 0)
 		ft_error("The map couldn't be opened", data);
@@ -43,11 +44,14 @@ void	stock_map(t_data *data)
 		close_error(file, "Memory allocation failed", data);
 	stock_read_line(data, file);
 	data->map = ft_split(data->stock, '\n');
-	data->map_copy = ft_split(data->stock, '\n');
+	// data->map_copy = ft_split(data->stock, '\n'); //ligne 47
 	free(data->stock);
 	data->stock = NULL;
-	if (!data->map || !data->map_copy)
+	if (!data->map)
+	{
+		free_map(data->map);
 		close_error(file, "Invalid map format", data);
+	}
 	close(file);
 	print_map(data);
 }

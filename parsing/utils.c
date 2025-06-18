@@ -18,3 +18,34 @@ int	check_limits(t_color *color)
 		return (1);
 	return (0);
 }
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+int	is_only_space(char *str)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	while (str[i])
+	{
+		if(str[i] == ' ')
+			i++;
+	}
+	if (len == i)
+		return (1);
+	return (0);
+}

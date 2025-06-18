@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 13:23:04 by vluo              #+#    #+#             */
-/*   Updated: 2025/06/17 16:46:38 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/18 15:24:58 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void	ft_error(char *message, t_data *data);
 void	close_error(int file, char *message, t_data *data);
 int		ft_len(char	*arg);
 char	*check_extension(char *arg);
-void	init_data(t_data *data, char **av);
-void	parse_file(int ac, char **av);
+void	init_data(t_data *data, t_color *color, char **av);
+void	parse_file(int ac, char **av, t_data *data);
 void	print_map(t_data *data);
 void	print_map_line(t_data *data);
 void	exit_mess(char *message);
@@ -85,5 +85,9 @@ void	check_last_line(t_data *data);
 void	check_first_line(t_data *data);
 void	size_all_map(t_data *data);
 void	free_map(char **str);
+char	*ft_strcpy(char *dest, char *src);
+int		get_max_line(t_data *data);
+void	egalize_map(t_data *data);
 
+// void	init_data(t_data *data, char **av);
 #endif

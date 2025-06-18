@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:00:33 by mcauchy-          #+#    #+#             */
-/*   Updated: 2025/06/10 16:45:33 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/18 14:28:01 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,13 @@ char	*check_extension(char *arg)
 	return (ret);
 }
 
-void	parse_file(int ac, char **av)
+void	parse_file(int ac, char **av, t_data *data)
 {
 	char	*ret;
 
 	ret = check_extension(av[1]);
+	data->path = av[1];
+	printf("AVVVVVVVVVVVVV = %s\n", data->path);
 	if (ac > 2)
 		exit_mess("the command must contain 2 arguments");
 		// ft_putstr_fd("the command must contain 2 arguments", 2);

@@ -10,9 +10,12 @@ int	ft_size_len(t_data *data)
 	while (data->map[i])
 	{
 		if (ft_strchr(data->map[i], 'F') || ft_strchr(data->map[i], 'C'))
+		{
 			count++;
+		}
 		i++;
 	}
+	printf("\t \t herrrre %d\n", count);
 	return (count);
 }
 
@@ -35,7 +38,7 @@ void	stock_line(t_data *data)
 
 	i = 0;
 	j = 0;
-	data->line = (char **)malloc(sizeof(char) * (ft_size_len(data) + 1));
+	data->line = (char **)malloc(sizeof(char *) * (ft_size_len(data) + 1));
 	if (!data->line)
 		return (exit_mess("malloc failed"));
 	while (data->map[i])
@@ -50,5 +53,5 @@ void	stock_line(t_data *data)
 		i++;
 	}
 	data->line[j] = NULL;
-	print_map_line(data);
+	//print_map_line(data);
 }

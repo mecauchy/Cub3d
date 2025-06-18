@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 15:02:36 by mcauchy-          #+#    #+#             */
-/*   Updated: 2025/06/17 16:22:46 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/18 16:34:45 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	size_map(t_data *data)
 			|| ft_strncmp(data->map[i], "WE", 2) == 0 \
 			|| ft_strncmp(data->map[i], "EA", 2) == 0 \
 			|| ft_strncmp(data->map[i], "C", 1) == 0 \
-			|| ft_strncmp(data->map[i], "F", 1) == 0)
+			|| ft_strncmp(data->map[i], "F", 1) == 0) \
 			i++;
 		else
 		{
@@ -89,7 +89,7 @@ void	check_corner(t_data *data)
 		if (data->map[i][0] != '1' && data->map[i][0] != ' ')
 		{
 			printf("invalid here : %c\n", data->map[i][0]);
-			exit_mess("Invalid Map");
+			exit_mess("Invalid Mapq");
 		}
 		else
 			i++;
