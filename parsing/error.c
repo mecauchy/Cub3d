@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:00:16 by mcauchy-          #+#    #+#             */
-/*   Updated: 2025/06/18 14:11:13 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/19 14:50:54 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 void	ft_error(char *message, t_data *data)
 {
-	if (data)
-	{
-		printf("heee");
-		// free(data);
-	}
-	ft_printf(RED"\nError\n"GREY"%s\n"RESET, message);
+	free_map(data->map);
+	exit_mess(message);
 	exit(EXIT_FAILURE);
 }
 
@@ -29,8 +25,21 @@ void	exit_mess(char *message)
 	exit(EXIT_FAILURE);
 }
 
-void	close_error(int file, char *message, t_data *data)
+void	close_error(int file, char *message)
 {
 	close(file);
-	ft_error(message, data);
+	exit_mess(message);
+}
+
+void	free_map(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

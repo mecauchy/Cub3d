@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_color_01.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcauchy- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/19 11:49:41 by mcauchy-          #+#    #+#             */
+/*   Updated: 2025/06/19 11:49:42 by mcauchy-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 int	ft_size_len(t_data *data)
@@ -10,12 +22,9 @@ int	ft_size_len(t_data *data)
 	while (data->map[i])
 	{
 		if (ft_strchr(data->map[i], 'F') || ft_strchr(data->map[i], 'C'))
-		{
 			count++;
-		}
 		i++;
 	}
-	printf("\t \t herrrre %d\n", count);
 	return (count);
 }
 
@@ -53,5 +62,4 @@ void	stock_line(t_data *data)
 		i++;
 	}
 	data->line[j] = NULL;
-	//print_map_line(data);
 }

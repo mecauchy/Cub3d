@@ -6,7 +6,7 @@
 /*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 13:23:04 by vluo              #+#    #+#             */
-/*   Updated: 2025/06/18 17:47:16 by mcauchy-         ###   ########.fr       */
+/*   Updated: 2025/06/19 15:36:06 by mcauchy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@
 # define RES_Y 640
 # define CELLSIZE 64
 
+# define EXIT_COLOR "colors are not numbers\nor must be in a range of 0-255"
+
 typedef struct s_color
 {
 	int	r;
@@ -44,26 +46,19 @@ typedef struct s_color
 
 typedef struct s_data
 {
-	// void		*mlx;
-	// void		*win;
 	char		**map;
-	char		**map_copy;
-	// int			floor_col;
-	// int			ceiling_col;
 	char		**line;
 	char		*stock;
 	char		*path;
 	int			largeur_map;
+	int			start;
 	int			size_all;
 	t_color		*color;
 }	t_data;
 
-
-
 void	stock_read_line(t_data *data, int file);
 void	stock_map(t_data *data);
-void	ft_error(char *message, t_data *data);
-void	close_error(int file, char *message, t_data *data);
+void	close_error(int file, char *message);
 int		ft_len(char	*arg);
 char	*check_extension(char *arg);
 void	init_data(t_data *data, t_color *color, char **av);
@@ -75,8 +70,8 @@ int		ft_size_len(t_data *data);
 int		word_count(char *str);
 void	stock_line(t_data *data);
 int		is_digit(char *line);
-int		check_limits(t_color *color);
-void	stock_color(char *line, t_color *color);
+void	check_limits(t_color *color, t_data *data);
+void	stock_color(char *line, t_color *color, t_data *data);
 void	size_map(t_data *data);
 void	parse_color(t_data *data, t_color *color);
 void	check_corner(t_data *data);
@@ -90,6 +85,10 @@ char	*ft_strcpy(char *dest, char *src);
 int		get_max_line(t_data *data);
 int		count_char(t_data *data);
 void	egalize_map(t_data *data);
+void	check_nb_textures(t_data *data);
+void	check_nb_perso(t_data *data);
+void	skip_textures(t_data *data);
+void	check_map_char(t_data *data, int i, int j);
+void	ft_error(char *message, t_data *data);
 
-// void	init_data(t_data *data, char **av);
 #endif

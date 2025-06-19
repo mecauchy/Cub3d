@@ -6,7 +6,7 @@
 #    By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 13:22:33 by vluo              #+#    #+#              #
-#    Updated: 2025/06/18 15:14:31 by mcauchy-         ###   ########.fr        #
+#    Updated: 2025/06/19 14:35:01 by mcauchy-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ BLUE			=	\e[34m
 
 RESET			=	\e[0m
 
-SRC				=	$(SRC_DIR)parse_arg.c $(SRC_DIR)parse_color.c $(SRC_DIR)parse_map.c $(SRC_DIR)stock_file.c $(SRC_DIR)error.c $(SRC_DIR)egalize_map.c $(SRC_DIR)utils.c $(SRC_DIR)main.c $(SRC_DIR)parse_color_01.c $(SRC_DIR)print_list.c $(SRC_DIR)init_data.c	\
+SRC				=	$(SRC_DIR)parse_arg.c $(SRC_DIR)parse_color.c $(SRC_DIR)utils01.c $(SRC_DIR)parse_textures.c $(SRC_DIR)parse_map.c $(SRC_DIR)stock_file.c $(SRC_DIR)error.c $(SRC_DIR)egalize_map.c $(SRC_DIR)utils.c $(SRC_DIR)main.c $(SRC_DIR)parse_color_01.c $(SRC_DIR)print_list.c $(SRC_DIR)init_data.c	\
 
 OBJ				=	$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
 

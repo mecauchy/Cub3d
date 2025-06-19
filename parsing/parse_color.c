@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_color.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcauchy- <mcauchy-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/19 11:50:20 by mcauchy-          #+#    #+#             */
+/*   Updated: 2025/06/19 15:33:19 by mcauchy-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 #include <string.h>
-
 
 /*
 	----- utiliser stock color de cette facon :
@@ -13,25 +24,22 @@
 
 void	checker_line(char *line)
 {
-	int	i;
 	char	**checker;
+	int		i;
 
 	i = 0;
 	checker = ft_split(line, ' ');
-	while(checker[0][i])
-	{
+	while (checker[0][i])
 		i++;
-	}
-	printf("checker line -> %d\n", i);
 	if (i > 1)
 	{
 		free_map(checker);
-		exit_mess("Color must be start with : 'C' or 'F'");
+		exit_mess("Color must start with : 'C' or 'F'");
 	}
 	free_map(checker);
 }
 
-void	stock_color(char *line, t_color *color)
+void	stock_color(char *line, t_color *color, t_data *data)
 {
 	char	**tmp;
 	int		i;
@@ -39,60 +47,49 @@ void	stock_color(char *line, t_color *color)
 
 	i = 0;
 	j = 0;
-	printf("line ========== [%s]\n", line);
-	checker_line(line);
-	if (*line == 'C' || *line == 'F' || *line == '\n')
-		line++;
-	if (*line == ' ')
-		line++;
 	tmp = ft_split(line, ',');
 	while (tmp[i])
-	{	
-		printf("str[%d] = %s\n", i, tmp[i]);
 		i++;
-	}
 	if (i != 3)
+		return (free_map(tmp), free_map(data->line), free_map(data->map), \
+			exit_mess("It must be 3 color, no more, no less"));
+	i = -1;
+	while (tmp[++i])
 	{
-		free_map(tmp);
-		exit_mess("It must be 3 color, no more, no less");
-	}
-	i = 0;
-	while (tmp[i])
-	{
-		printf("here   %s\n", tmp[i]);
+		j = 0;
 		if (tmp[i][j] == ' ')
 			j++;
-		if (is_digit(tmp[i]) && tmp[i])
-			j++;
-		if (!is_digit(tmp[i]))
-		{
-			printf("nn digit tmp is = [%c]\n", tmp[i][j]);
-			free_map(tmp);
-			exit_mess("colors must be in a range of 0-255");
-		}
-		i++;
+		if (!is_digit(tmp[i]) && tmp[i])
+			continue ;
+		if (is_digit(tmp[i]))
+			return (free_map(tmp), free_map(data->line), free_map(data->map), exit_mess(EXIT_COLOR));
 	}
-	color->r = atoi(tmp[0]);
-	color->g = atoi(tmp[1]);
-	color->b = atoi(tmp[2]);
-	printf("color is = %d\n", color->r);
-	printf("color is = %d\n", color->g);
-	printf("color is = [%d]\n", color->b);
-	free_map(tmp);
-	check_limits(color);
+	return (color->r = atoi(tmp[0]), color->g = atoi(tmp[1]), \
+		color->b = atoi(tmp[2]), free_map(tmp), check_limits(color, data));
 }
 
 void	parse_color(t_data *data, t_color *color)
 {
-	int	i = 0;
+	int	i;
+	int	j;
 
-	while (data->line[i])
+	i = -1;
+	while (data->line[++i])
 	{
+		j = 1;
+		checker_line(data->line[i]);
 		if (data->line[i][0] == 'F')
-			stock_color(data->line[i], color);
+		{
+			while (data->line[i][j] == ' ')
+				j ++;
+			stock_color(&data->line[i][j], color, data);
+		}
 		else if (data->line[i][0] == 'C')
-			stock_color(data->line[i], color);
-		i++;
+		{
+			while (data->line[i][j] == ' ')
+				j ++;
+			stock_color(&data->line[i][j], color, data);
+		}
 	}
 	free_map(data->line);
 }
